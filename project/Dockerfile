@@ -5,6 +5,6 @@ WORKDIR /server
 
 COPY pyproject.toml /server
 
-RUN pip install poetry && poetry config virtualenvs.create false && poetry install
+RUN pip install --upgrade pip && pip install poetry && poetry config virtualenvs.create false && poetry install
 
 COPY . /server
