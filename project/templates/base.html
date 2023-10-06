@@ -1,0 +1,14 @@
+{% load static common_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Все меню{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+</head>
+<body>
+<h2>Все меню</h2>
+{% draw_menu 'menu_1' %}
+{% draw_menu 'menu_2' %}
+</body>
+</html>

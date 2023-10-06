@@ -1,0 +1,30 @@
+{% load mptt_tags %}
+
+<div>
+    <div class="custom">
+        <ul class="">
+            {% recursetree menu %}
+                    <li>
+                        {% with url_path="/"|add:node.get_absolute_url|add:"/" %}
+                            {% if url_path in current_path %}
+                                <a href="{{ url_path }}">
+                                <button class="active textcols">
+                                    - {{ node.title }}
+                                </button>
+                                {% if not node.is_leaf_node %}
+                                    <ul>
+                                        {{ children }}
+                                    </ul>
+                                {% endif %}
+                            {% else %}
+                                <a href="{{ url_path }}">
+                                <button>
+                                    + {{ node.title }}
+                                </button>
+                            {% endif %}
+                        {% endwith %}
+                        </a></li>
+            {% endrecursetree %}
+        </ul>
+    </div>
+</div>
